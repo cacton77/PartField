@@ -25,6 +25,7 @@ PartField is a feedforward model that predicts part-based feature fields for 3D 
 ## Pretrained Model
 ```
 mkdir model
+### Please download the model and put it into this folder.
 ```
 The link to download our pretrained model is here: [Trained on Objaverse](https://huggingface.co/mikaelaangel/partfield-ckpt/blob/main/model_objaverse.ckpt). Due to licensing restrictions, we are unable to release the model that was also trained on PartNet.
 

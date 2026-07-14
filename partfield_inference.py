@@ -44,6 +44,8 @@ def predict(cfg):
     if cfg.remesh_demo:
         cfg.n_point_per_face = 10
 
+    from yacs.config import CfgNode
+    torch.serialization.add_safe_globals([CfgNode])
     trainer.predict(model, ckpt_path=cfg.continue_ckpt)
         
 def main():

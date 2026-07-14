@@ -1,6 +1,7 @@
 from sklearn.cluster import AgglomerativeClustering, KMeans
 import numpy as np
 import trimesh
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -38,7 +39,7 @@ def export_colored_mesh_ply(V, F, FL, filename='segmented_mesh.ply'):
 
     # Generate distinct colors for each unique label
     unique_labels = np.unique(FL)
-    colormap = plt.cm.get_cmap("tab20", len(unique_labels))
+    colormap = matplotlib.colormaps["tab20"].resampled(len(unique_labels))
     label_to_color = {
         label: (np.array(colormap(i)[:3]) * 255).astype(np.uint8)
         for i, label in enumerate(unique_labels)
@@ -68,7 +69,7 @@ def export_pointcloud_with_labels_to_ply(V, VL, filename='colored_pointcloud.ply
 
     # Generate unique colors for each label
     unique_labels = np.unique(VL)
-    colormap = plt.cm.get_cmap("tab20", len(unique_labels))
+    colormap = matplotlib.colormaps["tab20"].resampled(len(unique_labels))
     label_to_color = {
         label: colormap(i)[:3] for i, label in enumerate(unique_labels)
     }
